@@ -1,4 +1,3 @@
-# imports
 import numpy as np
 import autograd.numpy as anp
 from autograd import grad
@@ -8,9 +7,10 @@ import scipy.optimize as sopt
 import pandas as pd
 from ananke.graphs import ADMG
 from scipy.special import comb
-from ricf import bic
 import copy
 
+from ricf import bic
+from utils.admg2pag import admg_to_pag, pprint_pag
 
 @primitive
 def cycle_loss(W):
@@ -491,3 +491,7 @@ if __name__ == "__main__":
     print(learn.convergence_)
     print(learn.G_.di_edges)
     print(learn.G_.bi_edges)
+
+    # convert ADMG to PAG
+    pag = admg_to_pag(best_G)
+    pprint_pag(pag)

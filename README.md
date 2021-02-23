@@ -1,13 +1,26 @@
 # Differentiable Causal Discovery Under Unmeasured Confounding
 
-Python implementation of constraints and methods from the paper "Differentiable Causal Discovery Under Unmeasured Confounding."
+Python implementation of constraints and methods from the paper "[Differentiable Causal Discovery Under Unmeasured Confounding.](https://arxiv.org/pdf/2010.06978.pdf)"
 
-All packages required to run the causal discovery algorithm are readily available for installation via pip.
+### Requirements
 
-After installing the required packages, an example can be run as `python admg_discovery.py`. Example usage is documented within the `main` function of the script itself. Different ADMG classes can be learned by simply changing the `admg_class` argument to be one of `"bow-free"`, `"arid"`, or `"ancestral"`.
+All packages required to run the causal discovery algorithm are readily available for installation via pip. Java is required to use Tetrad.
+```
+pip install -r requirements.txt
+bash utils/setup_tetrad.sh
+```
+
+### Usage
+
+An example can be run with
+```
+python admg_discovery.py
+```
+Example usage is documented within the `main` function of the script itself. Different ADMG classes can be learned by simply changing the `admg_class` argument to be one of `"bow-free"`, `"arid"`, or `"ancestral"`.
+
+### Cite
 
 This code will soon also be available as a pip installable package when it is merged into [Ananke](https://ananke.readthedocs.io/en/latest/index.html).
-
 If you find this code (or its adaptation in Ananke) helpful, please consider citing:
 
 ```
