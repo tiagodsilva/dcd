@@ -11,7 +11,7 @@ def pprint_pag(G):
 
     :param G: Ananke ADMG with 'pag_edges' attribute.
     :return: None.
-    """    
+    """
     print ('-'*10)
     print (f'Nodes: {list(G.vertices.keys())}')
     for edge in G.pag_edges:
@@ -57,11 +57,13 @@ def inducing_path(G, Vi, Vj):
     visited = set()
 
     while visit_stack:
+
+        if Vj in visit_stack or Vj in G.parents(visit_stack):
+            return True
+
         v = visit_stack.pop()
         visited.add(v)
         visit_stack.extend(set([s for s in G.siblings([v]) if s in ancestors_ViVj]) - visited)
-        if Vj in visit_stack or Vj in G.parents(visit_stack):
-            return True
     return False
 
 
@@ -111,12 +113,12 @@ def admg_to_pag(G, tmpdir='tmp/'):
     # load back into new ADMG and return
     lines = open(f'{tmpdir}/G.mag.pag', 'r').read().strip().split('\n')
     nodes = lines[1].split(';')
-    nodes = [int(node[1:]) for node in nodes] # remove X
+    nodes = [str(node[1:]) for node in nodes] # remove X
 
     edges = []
     for line in lines[4:]:
       edge = line.split('. ')[1].split(' ')
-      edges.append({'u':int(edge[0][1:]), 'v':int(edge[2][1:]), 'type':edge[1]})
+      edges.append({'u':str(edge[0][1:]), 'v':str(edge[2][1:]), 'type':edge[1]})
 
     G = ADMG(nodes)
     G.pag_edges = edges

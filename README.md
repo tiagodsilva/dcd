@@ -16,7 +16,7 @@ An example can be run with
 ```
 python admg_discovery.py
 ```
-Example usage is documented within the `main` function of the script itself. Different ADMG classes can be learned by simply changing the `admg_class` argument to be one of `"bow-free"`, `"arid"`, or `"ancestral"`.
+Example usage is documented within the `main` function of the script itself. Different ADMG classes can be learned by simply changing the `admg_class` argument to be one of `"bowfree"`, `"arid"`, or `"ancestral"`.
 
 ### Cite
 

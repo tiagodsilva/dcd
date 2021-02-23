@@ -484,7 +484,7 @@ if __name__ == "__main__":
     X = np.random.multivariate_normal([0] * dim, true_sigma, size=size)
     X = X - np.mean(X, axis=0)  # centre the data
 
-    data = pd.DataFrame({0: X[:, 0], 1: X[:, 1], 2: X[:, 2], 3: X[:, 3]})
+    data = pd.DataFrame({"A": X[:, 0], "B": X[:, 1], "C": X[:, 2], "D": X[:, 3]})
 
     learn = Discovery(lamda=0.05)
     best_G = learn.discover_admg(data, admg_class="bowfree", verbose=True)
