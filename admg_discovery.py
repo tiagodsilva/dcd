@@ -9,8 +9,8 @@ from ananke.graphs import ADMG
 from scipy.special import comb
 import copy
 
-from ricf import bic
-from utils.admg2pag import admg_to_pag, pprint_pag
+from dcd.ricf import bic
+from dcd.utils.admg2pag import admg_to_pag, pprint_pag
 
 @primitive
 def cycle_loss(W):
